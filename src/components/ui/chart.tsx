@@ -348,11 +348,11 @@ function getPayloadConfigFromPayload(
 type CustomTooltipProps = {
   active?: boolean;
   payload?: {
-    value: number;
+    value: number | string;
     name?: string;
     dataKey?: string;
     color?: string;
-    payload: any;
+    payload: Record<string, unknown>;
   }[];
   className?: string;
   indicator?: "dot" | "line" | "dashed";
@@ -364,14 +364,21 @@ type CustomTooltipProps = {
   formatter?: (
     value: number | string,
     name?: string,
-    item?: any,
+    item?: {
+      value: number | string;
+      name?: string;
+      color?: string;
+      dataKey?: string;
+      payload: Record<string, unknown>;
+    },
     index?: number,
-    originalPayload?: any
+    originalPayload?: Record<string, unknown>
   ) => React.ReactNode;
   color?: string;
   nameKey?: string;
   labelKey?: string;
 };
+
 
 
 export {
