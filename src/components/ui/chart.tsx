@@ -113,6 +113,23 @@ const ChartTooltipContent = React.forwardRef<
       labelKey?: string
     }
 >(
+  type CustomTooltipProps = {
+  active?: boolean;
+  payload?: { value: any }[]; // or use `any[]` if unsure
+  className?: string;
+  indicator?: "dot" | "line" | "dashed";
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  label?: string;
+  labelFormatter?: (label: string) => string;
+  labelClassName?: string;
+  formatter?: (value: any) => string;
+  color?: string;
+  nameKey?: string;
+  labelKey?: string;
+};
+
+const CustomTooltip = React.forwardRef<HTMLDivElement, CustomTooltipProps>(
   (
     {
       active,
@@ -131,13 +148,13 @@ const ChartTooltipContent = React.forwardRef<
     },
     ref
   ) => {
+
     const { config } = useChart()
 
     const tooltipLabel = React.useMemo(() => {
       if (hideLabel || !payload?.length) {
         return null
       }
-
       const [item] = payload
       const key = `${labelKey || item?.dataKey || item?.name || "value"}`
       const itemConfig = getPayloadConfigFromPayload(config, item, key)
