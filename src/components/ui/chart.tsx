@@ -346,20 +346,33 @@ function getPayloadConfigFromPayload(
 }
 
 type CustomTooltipProps = {
-  active?: boolean
-  payload?: { value: any }[]
-  className?: string
-  indicator?: "dot" | "line" | "dashed"
-  hideLabel?: boolean
-  hideIndicator?: boolean
-  label?: string
-  labelFormatter?: (label: string) => string
-  labelClassName?: string
-  formatter?: (value: any) => string
-  color?: string
-  nameKey?: string
-  labelKey?: string
-}
+  active?: boolean;
+  payload?: {
+    value: number;
+    name?: string;
+    dataKey?: string;
+    color?: string;
+    payload: any;
+  }[];
+  className?: string;
+  indicator?: "dot" | "line" | "dashed";
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  label?: string;
+  labelFormatter?: (label: string) => string;
+  labelClassName?: string;
+  formatter?: (
+    value: number | string,
+    name?: string,
+    item?: any,
+    index?: number,
+    originalPayload?: any
+  ) => React.ReactNode;
+  color?: string;
+  nameKey?: string;
+  labelKey?: string;
+};
+
 
 export {
   ChartContainer,
