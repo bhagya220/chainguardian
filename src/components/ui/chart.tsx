@@ -11,7 +11,6 @@ import {
   YAxis,
 } from "recharts";
 import { cn } from "@/lib/utils";
-import { Theme } from "lucide-react";
 import { useTheme } from "next-themes";
 
 // Define the shape of a single chart data point
