@@ -359,7 +359,7 @@ type CustomTooltipProps = {
   hideLabel?: boolean;
   hideIndicator?: boolean;
   label?: string;
-  labelFormatter?: (label: string, payload?: unknown[]) => string;
+  labelFormatter?: (label: string, payload?: unknown[]) => React.ReactNode;
   labelClassName?: string;
   formatter?: (
     value: number | string,
