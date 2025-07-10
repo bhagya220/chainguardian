@@ -146,7 +146,7 @@ const ChartTooltipContent = React.forwardRef<
     if (labelFormatter) {
       return (
         <div className={cn("font-medium", labelClassName)}>
-          {labelFormatter(value, payload)}
+          {labelFormatter?.(value, payload)}
         </div>
       )
     }
@@ -359,7 +359,7 @@ type CustomTooltipProps = {
   hideLabel?: boolean;
   hideIndicator?: boolean;
   label?: string;
-  labelFormatter?: (label: string, payload?: unknown[]) => React.ReactNode;
+  labelFormatter?: (label: string, payload?: any[]) => React.ReactNode;
   labelClassName?: string;
   formatter?: (
     value: number | string,
