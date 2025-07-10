@@ -359,7 +359,7 @@ type CustomTooltipProps = {
   hideLabel?: boolean;
   hideIndicator?: boolean;
   label?: string;
-  labelFormatter?: (label: string) => string;
+  labelFormatter?: (label: string, payload?: unknown[]) => string;
   labelClassName?: string;
   formatter?: (
     value: number | string,
